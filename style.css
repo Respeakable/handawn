@@ -19,16 +19,29 @@
 
 /* resets */
 
-body,
-html {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body,
+html {
   font-family: "Poppins", sans-serif;
   background-color: var(--bg-primary);
 }
 
 body {
-  background: url("images/heroMobile.png") center/cover no-repeat;
+  /* Keep the site background color but use explicit background properties so
+     the image can be fixed to the viewport instead of scaling with page
+     height. */
+  background-color: var(--bg-primary);
+  background-image: url("images/heroMobile.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 h1 {
@@ -115,4 +128,41 @@ em {
   font-weight: bold;
   font-style: normal;
   color: var(--accent-gold);
+}
+
+.cont-hero-button {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+.cont-hero-button button {
+  background-color: var(--accent-gold);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.cont-hero-button a {
+  color: var(--text-on-dark);
+  text-shadow: 0 0 5px hsla(46, 42%, 33%, 0.877);
+  text-decoration: none;
+  font-size: clamp(var(--small), 2vw, var(--mid));
+  transition: all 0.3s ease;
+}
+.cont-hero-button button:hover {
+  background-color: var(--accent-beige);
+}
+
+.cont-hero-button button:active {
+  background-color: var(--accent-gray);
+  translate: 0px 2px;
+}
+
+/* library */
+
+#library {
+  padding: var(--padding-large) var(--padding-medium);
+  background-color: var(--bg-secondary);
+  box-shadow: 0px -10px 15px hsl(0 0% 0% / var(--translucent-ish));
 }
