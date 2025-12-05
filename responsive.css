@@ -1,6 +1,16 @@
 @media (min-width: 760px) {
-  body {
+  section.hero {
     background: url("images/hero.png") center/cover no-repeat;
+  }
+
+  .cont-hero-button button:hover {
+    background-color: var(--accent-beige);
+    translate: 0px -2px;
+  }
+
+  .cont-hero-button button:active {
+    background-color: var(--accent-gray);
+    translate: 0px 2px;
   }
 }
 
@@ -15,8 +25,5 @@
     align-items: center;
     justify-content: center;
     gap: 5rem;
-  }
-  .cont-hero-button button:active {
-    translate: 0px;
   }
 }

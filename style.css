@@ -32,18 +32,6 @@ html {
   background-color: var(--bg-primary);
 }
 
-body {
-  /* Keep the site background color but use explicit background properties so
-     the image can be fixed to the viewport instead of scaling with page
-     height. */
-  background-color: var(--bg-primary);
-  background-image: url("images/heroMobile.png");
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
 h1 {
   margin: 0;
 }
@@ -63,9 +51,9 @@ nav {
   background-color: var(--bg-primary);
   box-shadow: 0 2px var(--blur-small) hsl(0 0% 0% / var(--translucent-ish));
   padding: 0.1rem 0;
-
   display: flex;
   z-index: 10;
+  height: 3rem;
 }
 
 nav a {
@@ -89,6 +77,14 @@ section.hero {
   display: flex;
   justify-content: center;
   z-index: 1;
+  /* Keep the site background color but use explicit background properties so
+     the image can be fixed to the viewport instead of scaling with page
+     height. */
+  background-image: url("images/heroMobile.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 #hero-text {
@@ -107,7 +103,12 @@ section.hero {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent, var(--bg-primary));
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--bg-primary) 100%
+  );
+  opacity: 0.7;
   z-index: -1;
 }
 
@@ -150,14 +151,6 @@ em {
   font-size: clamp(var(--small), 2vw, var(--mid));
   transition: all 0.3s ease;
 }
-.cont-hero-button button:hover {
-  background-color: var(--accent-beige);
-}
-
-.cont-hero-button button:active {
-  background-color: var(--accent-gray);
-  translate: 0px 2px;
-}
 
 /* library */
 
@@ -165,4 +158,5 @@ em {
   padding: var(--padding-large) var(--padding-medium);
   background-color: var(--bg-secondary);
   box-shadow: 0px -10px 15px hsl(0 0% 0% / var(--translucent-ish));
+  height: 100dvh;
 }
