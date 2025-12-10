@@ -1,4 +1,4 @@
-@media (min-width: 760px) {
+@media (min-width: 768px) {
   section.hero {
     background: url("images/hero.png") center/cover no-repeat;
   }
@@ -11,6 +11,10 @@
   .cont-hero-button button:active {
     background-color: var(--accent-gray);
     translate: 0px 2px;
+  }
+
+  .theme-toggle:hover {
+    background-color: var(--bg-secondary);
   }
 }
 

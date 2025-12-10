@@ -16,8 +16,17 @@
 
     <header>
       <nav>
-        <a href="#" class="head-link">Home</a>
-        <a href="subsites/bday-gift.html" class="head-link">Bday Gift</a>
+        <div>
+          <a href="#" class="head-link">Home</a>
+          <a href="subsites/bday-gift.html" class="head-link">Bday Gift</a>
+        </div>
+        <button id="theme-toggle" class="theme-toggle">
+          <img
+            src="images/messenger_green_heart.png"
+            alt="💚"
+            class="messenger-icons"
+          />
+        </button>
       </nav>
     </header>
 
@@ -46,9 +55,55 @@
           <li>wala pako nagawa</li>
           <li>wala pako nagawa</li>
         </ul>
+        <article class="carrousel-info">
+          <h1 class="poppins-bold" id="library-header">Hi <em>Hannaa</em>!!</h1>
+          <p class="poppins-regular library-text">
+            This page is (going to be) a collection of my works in memory of
+            youu! We can do a lot of things together and i can post them here as
+            a private album of us hehehe. I'm very grateful for having you by my
+            side kaya i really wanted to revisit this project i keep scrapping
+            over and over and finally make a site na we can enjoy building
+            together :D <br /><br />
+          </p>
+
+          <i class="poppins-thin-italic">Insert super cool carrousel</i>
+        </article>
+        <div class="cont-hero-button">
+          <button type="button">
+            <a href="#more" class="poppins-regular">Wanna see more? :D</a>
+          </button>
+        </div>
       </section>
     </main>
 
     <footer></footer>
+
+    <script>
+      const themeToggle = document.getElementById("theme-toggle");
+      const heartIcon = themeToggle.querySelector(".messenger-icons");
+      const htmlElement = document.documentElement;
+
+      // Load saved theme preference
+      const savedTheme = localStorage.getItem("theme") || "green";
+      if (savedTheme === "pink") {
+        htmlElement.classList.add("pink-theme");
+        heartIcon.src = "images/messenger_pink_heart.png";
+      }
+
+      // Toggle theme on button click
+      themeToggle.addEventListener("click", () => {
+        themeToggle.classList.add("theme-spin");
+
+        setTimeout(() => {
+          htmlElement.classList.toggle("pink-theme");
+          const ispink = htmlElement.classList.contains("pink-theme");
+          heartIcon.src = ispink
+            ? "images/messenger_pink_heart.png"
+            : "images/messenger_green_heart.png";
+          localStorage.setItem("theme", ispink ? "pink" : "green");
+          themeToggle.classList.remove("theme-spin");
+        }, 300);
+      });
+    </script>
   </body>
 </html>

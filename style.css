@@ -17,6 +17,25 @@
   --accent-gray: hsl(156 4.9% 80%); /* Ash Gray (#C9CECC) */
 }
 
+:root.pink-theme {
+  /* Dark Pink tones */
+  --bg-primary: hsl(330 60% 20%); /* Deep Rose (#4D1A2F) */
+  --bg-secondary: hsl(330 50% 35%); /* Rose (#7D2A4A) */
+  --border-subtle: hsl(330 35% 45%); /* Mauve (#9D5070) */
+
+  /* Text Colors (same) */
+  --text-on-dark: hsl(0 0% 100%); /* White (#FFFFFF) */
+  --text-on-light: hsl(0 0% 0%); /* Black (#000000) */
+
+  /* Background Neutral (same) */
+  --bg-soft: hsl(60 20% 95%); /* Off-White (#F5F5F0) */
+
+  /* Accents */
+  --accent-gold: hsl(340 80% 70%); /* Hot Pink (#FF6BA6) */
+  --accent-beige: hsl(330 60% 75%); /* Light Pink (#E89BB0) */
+  --accent-gray: hsl(330 20% 80%); /* Pink Gray (#D1C4CC) */
+}
+
 /* resets */
 
 * {
@@ -24,6 +43,7 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  transition: all 0.3s ease;
 }
 
 body,
@@ -54,6 +74,44 @@ nav {
   display: flex;
   z-index: 10;
   height: 3rem;
+  position: relative;
+}
+
+nav > div {
+  display: flex;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: var(--padding-small) var(--padding-small);
+  cursor: pointer;
+  margin-right: var(--padding-small);
+  transition: transform 0.6s ease;
+  background: none;
+  border: none;
+}
+
+.theme-toggle.theme-spin {
+  animation: theme-spin 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes theme-spin {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+.messenger-icons {
+  width: 1.3rem;
+  height: 1.3rem;
+  transform: translateY(2px);
 }
 
 nav a {
@@ -67,6 +125,8 @@ nav a {
 nav a:hover {
   background-color: var(--bg-secondary);
 }
+
+/* Main */
 
 section {
   color: var(--text-on-dark);
@@ -182,4 +242,9 @@ em {
   flex: 0 0 auto;
   display: flex;
   align-items: center;
+}
+
+.library-text {
+  padding: var(--padding-small);
+  text-align: justify;
 }
