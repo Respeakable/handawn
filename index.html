@@ -31,8 +31,8 @@
     </header>
 
     <main>
-      <section class="hero">
-        <div class="cont-hero">
+      <section class="hero animate-on-scroll">
+        <div class="cont-hero animate-on-scroll">
           <h1 class="poppins-extrabold typewritter" id="hero-text">
             HAI THERE!!
           </h1>
@@ -47,9 +47,9 @@
           </div>
         </div>
       </section>
-      <section id="library">
+      <section id="library" class="animate-on-scroll">
         <ul id="carrousel" class="poppins-light">
-          <li>
+          <li class="animate-on-scroll">
             <img
               src="subsites/Screenshot_20250702-193042~2.png.png"
               alt="yay"
@@ -65,7 +65,7 @@
               </p>
             </div>
           </li>
-          <li>
+          <li class="animate-on-scroll">
             <img src="images/2025-06-12_22.43.45.png" alt="yay" />
             <div class="carrousel-text-cont">
               <a href="#" class="poppins-semibold carrousel-header"
@@ -74,7 +74,7 @@
               <p class="poppins-regular carrousel-text">haaiaaiai</p>
             </div>
           </li>
-          <li>
+          <li class="animate-on-scroll">
             <img src="images/hero.png" alt="yay" />
             <div class="carrousel-text-cont">
               <a
@@ -85,7 +85,7 @@
               <p class="poppins-regular carrousel-text">hi cute :p</p>
             </div>
           </li>
-          <li>
+          <li class="animate-on-scroll">
             <img src="images/hero2.png" alt="yay" />
             <div class="carrousel-text-cont">
               <a
@@ -96,7 +96,7 @@
               <p class="poppins-regular carrousel-text">haiiaaia</p>
             </div>
           </li>
-          <li>
+          <li class="animate-on-scroll">
             <img src="images/2025-05-17_15.58.40.png" alt="yay" />
             <div class="carrousel-text-cont">
               <a
@@ -108,7 +108,7 @@
             </div>
           </li>
         </ul>
-        <article class="carrousel-info">
+        <article class="carrousel-info animate-on-scroll">
           <h1 class="poppins-bold" id="library-header">Hi <em>Hannaa</em>!!</h1>
           <p class="poppins-regular library-text">
             This page is (going to be) a collection of my works in memory of
@@ -127,8 +127,8 @@
           </button>
         </div>
       </section>
-      <section id="more">
-        <article id="more" class="more-info">
+      <section id="more" class="animate-on-scroll">
+        <article id="more" class="more-info animate-on-scroll">
           <h1 class="poppins-bold more-header">More to come!!</h1>
           <p class="poppins-regular more-text">
             This page is still a work in progress hehehe. I'll be adding more
@@ -143,7 +143,19 @@
       </section>
     </main>
 
-    <footer><p class="poppins-regular-italic">made by: ian</p></footer>
+    <footer>
+      <p class="poppins-regular-italic">made by: ian</p>
+      <img
+        src="images/messenger_green_heart.png"
+        alt="💚"
+        class="messenger-icons"
+      />
+      <img
+        src="images/messenger_pink_heart.png"
+        alt="💚"
+        class="messenger-icons"
+      />
+    </footer>
 
     <script>
       const themeToggle = document.getElementById("theme-toggle");
@@ -171,6 +183,33 @@
           themeToggle.classList.remove("theme-spin");
         }, 300);
       });
+    </script>
+    <script>
+      // Scroll-triggered fade-in animations using IntersectionObserver
+      (function () {
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                // Unobserve so the animation runs only once
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+
+        document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+          // If element has data-anim-delay, apply it as CSS var so transition-delay works
+          const delay = el.dataset.animDelay;
+          if (delay) {
+            // allow values like "150ms" or "0.15s"
+            el.style.setProperty("--anim-delay", delay);
+          }
+          observer.observe(el);
+        });
+      })();
     </script>
   </body>
 </html>
