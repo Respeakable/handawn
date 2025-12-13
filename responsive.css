@@ -16,6 +16,10 @@
   .theme-toggle:hover {
     background-color: var(--bg-secondary);
   }
+
+  #library li {
+    flex: 0 0 37em;
+  }
 }
 
 /* Disable fixed background on narrow/touch devices (better performance

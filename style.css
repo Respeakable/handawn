@@ -227,6 +227,29 @@ em {
   overflow-x: auto;
   padding-bottom: var(--padding-medium);
   scrollbar-width: none;
+  anchor-name: --carrousel;
+  scroll-snap-type: x mandatory;
+  scroll-marker-group: after;
+}
+
+#carrousel::scroll-marker-group {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  transform: translateY(-10px);
+}
+
+#carrousel li::scroll-marker {
+  content: "";
+  font-size: 1.2rem;
+  background-color: var(--border-subtle);
+  height: 0.5em;
+  width: 0.5em;
+  border-radius: 50%;
+}
+
+#carrousel li::scroll-marker:target-current {
+  background-color: var(--bg-primary);
 }
 
 #library ul::-webkit-scrollbar {
@@ -234,17 +257,77 @@ em {
 }
 
 #library li {
-  min-width: 200px;
-  min-height: 300px;
+  min-height: 18em;
   background-color: var(--bg-primary);
   border-radius: 10px;
   box-shadow: 0 4px 6px hsl(0 0% 0% / var(--translucent-ish));
-  flex: 0 0 auto;
+  flex: 0 0 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  scroll-snap-align: start;
+  padding: 0.7rem 0.4rem;
+}
+
+#library li img {
+  border-radius: var(--rounded);
+  width: 100%;
+  height: auto;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+.carrousel-text-cont {
+  padding: var(--padding-regular);
+  text-align: center;
+}
+
+.carrousel-header {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  color: var(--accent-gold);
+}
+
+.carrousel-header:checked {
+  color: var(--accent-beige);
+}
+
+.carrousel-text {
+  font-size: 0.9rem;
+}
+
+#library ul::scroll-button(right),
+#library ul::scroll-button(left) {
+  content: "→";
+  border: none;
+  background-color: var(--accent-gold);
+  width: 3rem;
+  height: 3rem;
+  color: var(--bg-secondary);
+  border-radius: var(--circle);
+  font-family: "Consolas", sans-serif;
+  font-size: 2.3rem;
+  padding-bottom: 0.1em;
+  cursor: pointer;
+  position: fixed;
+  position-anchor: --carrousel;
+  position-area: right center;
+  translate: -65%;
+}
+
+#library ul::scroll-button(left) {
+  content: "←";
+  position-area: left center;
+  translate: 65%;
+}
+
+#library ul::scroll-button(right):disabled,
+#library ul::scroll-button(left):disabled {
+  background-color: var(--border-subtle);
+  cursor: not-allowed;
 }
 
 .library-text {
   padding: var(--padding-small);
+  font-size: 0.9rem;
   text-align: justify;
 }
