@@ -331,3 +331,34 @@ em {
   font-size: 0.9rem;
   text-align: justify;
 }
+
+/* WIP */
+
+section#more {
+  padding: var(--padding-large) var(--padding-medium);
+  background: linear-gradient(var(--bg-primary) 70%, #00000059);
+  color: var(--text-on-dark);
+  min-height: 100dvh;
+}
+section#more h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  margin-bottom: var(--padding-large);
+}
+section#more p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: clamp(var(--small), 2vw, var(--mid));
+  line-height: 1.6;
+  text-align: justify;
+}
+
+footer {
+  background-color: #00000059;
+  text-align: center;
+  padding: var(--padding-medium) 0;
+}
+
+footer p {
+  color: var(--text-on-dark);
+}
