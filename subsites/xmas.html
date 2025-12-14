@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="xmas.css" />
+    <link rel="stylesheet" href="../font.css" />
+    <link rel="stylesheet" href="../animLib.css" />
+    <link rel="stylesheet" href="../roots.css" />
+    <link
+      rel="shortcut icon"
+      href="../images/messenger_christmastree.ico"
+      type="image/x-icon"
+    />
+    <title>MERRY CHRISTMAS</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="../index.html" class="poppins-bold header-title">←</a>
+        <p class="poppins-bold header-text">MERRY CHRISTMAS</p>
+        <button id="theme-toggle" class="theme-toggle">
+          <img
+            src="../images/messenger_green_heart.png"
+            alt="💚"
+            class="messenger-icons"
+          />
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero">
+        <h1 class="poppins-extrabold" data-text="haihaiaih" id="hero-text-xmas">
+          MERRY CHRISTMAS,
+          <br />HANNA! &lt;33
+        </h1>
+        <p class="poppins-regular text-hero-xmas">
+          Here's a little christmas gift i made for u kasi u deserve it :&gt;
+          <br />
+          <br />
+          Hope u like it!
+        </p>
+
+        <button type="button" class="btn">
+          <a href="#gift" class="poppins-bold">Take a Look!</a>
+        </button>
+      </section>
+    </main>
+
+    <script>
+      const themeToggle = document.getElementById("theme-toggle");
+      const heartIcon = themeToggle.querySelector(".messenger-icons");
+      const htmlElement = document.documentElement;
+
+      // Load saved theme preference
+      const savedTheme = localStorage.getItem("theme") || "green";
+      if (savedTheme === "pink") {
+        htmlElement.classList.add("pink-theme");
+        heartIcon.src = "images/messenger_pink_heart.png";
+      }
+
+      // Toggle theme on button click
+      themeToggle.addEventListener("click", () => {
+        themeToggle.classList.add("theme-spin");
+
+        setTimeout(() => {
+          htmlElement.classList.toggle("pink-theme");
+          const ispink = htmlElement.classList.contains("pink-theme");
+          heartIcon.src = ispink
+            ? "../images/messenger_pink_heart.png"
+            : "../images/messenger_green_heart.png";
+          localStorage.setItem("theme", ispink ? "pink" : "green");
+          themeToggle.classList.remove("theme-spin");
+        }, 300);
+      });
+    </script>
+    <script>
+      // Populate data-text attributes so CSS pseudo-elements can duplicate text for shadow
+      (function () {
+        const sel = ".header-text, #hero h1, #hero-text-xmas, #library-header";
+        document.querySelectorAll(sel).forEach((el) => {
+          // preserve original spacing and newlines
+          const txt = el.textContent.trim();
+          el.setAttribute("data-text", txt);
+        });
+        // keep attributes in sync if content changes dynamically
+        const mo = new MutationObserver((records) => {
+          records.forEach((rec) => {
+            if (rec.type === "characterData" || rec.type === "childList") {
+              const t = rec.target.parentElement || rec.target;
+              if (t && t.matches && t.matches(sel)) {
+                t.setAttribute("data-text", t.textContent.trim());
+              }
+            }
+          });
+        });
+        document.querySelectorAll(sel).forEach((el) =>
+          mo.observe(el, {
+            childList: true,
+            characterData: true,
+            subtree: true,
+          })
+        );
+      })();
+    </script>
+  </body>
+</html>

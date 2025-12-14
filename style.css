@@ -370,6 +370,12 @@ section#more p {
   text-align: justify;
 }
 
+#more p.subtext {
+  font-size: clamp(var(--padding-regular), 1.5vw, var(--small));
+  color: var(--accent-gray);
+  text-align: center;
+}
+
 footer {
   background-color: #00000059;
   text-align: center;

@@ -18,7 +18,7 @@
       <nav>
         <div>
           <a href="#" class="head-link">Home</a>
-          <a href="subsites/bday-gift.html" class="head-link">Bday Gift</a>
+          <a href="#library" class="head-link">Projects</a>
         </div>
         <button id="theme-toggle" class="theme-toggle">
           <img
@@ -68,10 +68,14 @@
           <li class="animate-on-scroll">
             <img src="images/2025-06-12_22.43.45.png" alt="yay" />
             <div class="carrousel-text-cont">
-              <a href="#" class="poppins-semibold carrousel-header"
-                >idk yettt</a
+              <a
+                href="subsites/xmas.html"
+                class="poppins-semibold carrousel-header"
+                >MERRY CHRISTMAS!</a
               >
-              <p class="poppins-regular carrousel-text">haaiaaiai</p>
+              <p class="poppins-regular carrousel-text">
+                One of my christmas presents for u :&gt;
+              </p>
             </div>
           </li>
           <li class="animate-on-scroll">
@@ -140,10 +144,7 @@
             Iannim &lt;33
           </p>
           <br />
-          <p class="poppins-regular more-text">
-            here's a playlist i made! idk what this is, but it reminded me of u
-            !
-          </p>
+          <br />
           <iframe
             data-testid="embed-iframe"
             style="border-radius: 12px"
@@ -155,6 +156,10 @@
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
+          <p class="poppins-regular-italic more-text subtext">
+            here's a playlist i made! idk what this is, but it reminded me of u
+            !
+          </p>
         </article>
       </section>
     </main>
@@ -201,15 +206,15 @@
       });
     </script>
     <script>
-      // Scroll-triggered fade-in animations using IntersectionObserver
+      // Scroll-triggered animations: add/remove `in-view` so they retrigger
       (function () {
         const observer = new IntersectionObserver(
-          (entries, obs) => {
+          (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 entry.target.classList.add("in-view");
-                // Unobserve so the animation runs only once
-                obs.unobserve(entry.target);
+              } else {
+                entry.target.classList.remove("in-view");
               }
             });
           },
