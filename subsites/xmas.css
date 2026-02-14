@@ -1,6 +1,20 @@
 /* Colors */
 
 :root {
+  /* Core Blues */
+  --bg-primary: hsl(210 60% 11%); /* Midnight Winter Blue */
+  --bg-secondary: hsl(213 52% 25%); /* Evergreen Blue */
+  --bg-soft: hsl(215 38% 47%); /* Frosted Sky */
+  --accent-ice: hsl(214 55% 78%); /* Icy Blue */
+
+  /* Neutrals */
+  --text-on-dark: hsl(0 0% 100%); /* Snow White */
+  --text-muted: hsl(215 18% 88%); /* Silver Frost */
+
+  /* Festive Accents */
+  --accent-gold: hsl(46 65% 52%); /* Holiday Gold */
+  --accent-red: hsl(343 64% 33%); /* Cranberry Red */
+
   /* Whites / pale tints */
   --white-100: hsl(210 100% 99%);
   --white-200: hsl(210 80% 97%);
@@ -20,11 +34,7 @@
 
   /* Accent and text */
   --accent-blue: hsl(200 95% 58%);
-  --bg-primary: var(--white-100);
-  --text-primary: hsl(215 16% 18%);
   /* Text gradient endpoints */
-  --text-gradient-from: var(--text-primary);
-  --text-gradient-to: var(--blue-500);
 }
 
 /* resets */
@@ -48,7 +58,7 @@ html {
 header {
   position: relative;
   z-index: 10;
-  background: linear-gradient(var(--blue-500), var(--blue-400));
+  background: linear-gradient(var(--bg-soft), var(--bg-secondary));
   @starting-style {
     translate: 0px -5rem;
     opacity: 0%;
@@ -130,7 +140,7 @@ nav a {
   height: 100dvh;
   text-align: center;
   gap: 1rem;
-  background-color: var(--blue-200);
+  background-color: var(--bg-primary);
   display: flex;
   justify-content: center;
 }
@@ -141,16 +151,8 @@ nav a {
 
 /* Specific hero text (xmas page) gradient + shadow */
 #hero-text-xmas {
-  color: var(--text-primary);
-  background: linear-gradient(
-    var(--text-gradient-from),
-    var(--text-gradient-to)
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  position: relative;
-  display: inline-block;
+  color: var(--text-on-dark);
+
   margin-top: var(padding-large);
 }
 .btn {

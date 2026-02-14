@@ -1,0 +1,39 @@
+:root {
+  /* Dark Pink tones */
+  --bg-primary: hsl(340, 58%, 55%); /* Deep Rose (#4D1A2F) */
+  --bg-secondary: hsl(330, 61%, 78%); /* Rose (#7D2A4A) */
+  --bg-tertiary: hsl(108, 49%, 52%); /* Light Rose (#A64D6E) */
+  --border-subtle: hsl(330 35% 45%); /* Mauve (#9D5070) */
+
+  /* Text Colors (same) */
+  --text-on-dark: hsl(0 0% 100%); /* White (#FFFFFF) */
+  --text-on-light: hsl(0 0% 0%); /* Black (#000000) */
+
+  /* Background Neutral (same) */
+  --bg-soft: hsl(60 20% 95%); /* Off-White (#F5F5F0) */
+
+  /* Accents */
+  --accent-gold: hsl(340 80% 70%); /* Hot Pink (#FF6BA6) */
+  --accent-beige: hsl(330 60% 75%); /* Light Pink (#E89BB0) */
+  --accent-gray: hsl(330 20% 80%); /* Pink Gray (#D1C4CC) */
+}
+
+/* Resets */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  transition: all 0.3s ease;
+}
+
+body,
+html {
+  font-family: "Poppins", sans-serif;
+  background-image: linear-gradient(var(--bg-primary), var(--bg-secondary) 60%);
+}
+
+body {
+  min-height: 100vh;
+}
