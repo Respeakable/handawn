@@ -96,18 +96,6 @@ nav h4 {
   text-shadow: 1px 2px 2px #fa77ce75;
 }
 
-nav h4,
-.head-link {
-  @starting-style {
-    translate: 0px -5rem;
-    opacity: 0%;
-  }
-
-  transition:
-    translate 1.5s ease,
-    opacity 1.5s ease;
-}
-
 .flower-wrapper {
   background-color: #f5f5f5a9;
   border-radius: var(--circle);
@@ -136,4 +124,22 @@ nav h4,
   width: 1.5rem;
   height: 1.5rem;
   transform: translateY(2px);
+}
+
+/* main */
+
+.hvd-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.hvd-img {
+  width: 110dvw;
+  object-fit: contain;
+  display: block;
+  transform: translateX(-0.8rem);
+  position: absolute;
+  margin: 4rem auto;
 }
