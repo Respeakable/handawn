@@ -61,11 +61,8 @@ body {
 header {
   background: transparent;
   padding: 1rem;
-  background-image: linear-gradient(
-    rgba(255, 194, 194, 0.836),
-    rgba(255, 194, 194, 0.836) 80%,
-    rgba(253, 157, 157, 0)
-  );
+  background: #0000000c;
+  box-shadow: 1px 2px var(--blur-small) hsl(0 0% 0% / var(--transparent-ish));
 }
 
 .head-link {
@@ -82,10 +79,10 @@ header {
 nav {
   background: linear-gradient(
     200deg,
-    rgba(0, 0, 0, 0),
-    rgba(255, 255, 255, 0.26)
+    rgba(255, 255, 255, 0.418),
+    rgba(255, 255, 255, 0.699)
   );
-  box-shadow: 0 2px var(--blur-small) hsl(0 0% 0% / var(--translucent-ish));
+  box-shadow: 1px 2px var(--blur-small) hsl(0 0% 0% / var(--translucent-ish));
   border: 2px solid rgba(241, 165, 216, 0.493);
   border-radius: var(--smal-rounded);
   padding: clamp(0.3rem, 1.5vw, 0.5rem) 1rem;
