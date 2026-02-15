@@ -8,16 +8,36 @@
     <link rel="stylesheet" href="valentine.css" />
     <link rel="stylesheet" href="../font.css" />
     <link rel="stylesheet" href="../roots.css" />
+    <link rel="stylesheet" href="../animLib.css" />
     <link rel="stylesheet" href="vresponsive.css" />
   </head>
   <body>
     <header>
-      <nav>
+      <nav class="flex">
         <div>
-          <a href="../index.html" class="head-link">Home</a>
+          <div class="head-link-wrapper anim bob">
+            <a
+              href="../index.html"
+              class="head-link poppins-semibold"
+              data-text="Home"
+              >Home</a
+            >
+          </div>
         </div>
-        <h4 class="poppins-bold">HI HANNA!</h4>
+        <h4 class="poppins-black">HI HANNA!</h4>
+        <button class="flower-wrapper" id="flower-button">
+          <img src="../images/flowerrr.png" alt="flower :p" />
+        </button>
       </nav>
     </header>
+    <script>
+      const flowerButton = document.getElementById("flower-button");
+      flowerButton.addEventListener("click", () => {
+        flowerButton.classList.add("theme-spin");
+        setTimeout(() => {
+          flowerButton.classList.remove("theme-spin");
+        }, 550);
+      });
+    </script>
   </body>
 </html>

@@ -1,1 +1,9 @@
 /* Place to put Responsiveness (Moblie -> Desktop) */
+@media (min-width: 768px) {
+  .head-link {
+    font-size: 1.2rem;
+  }
+  nav h4 {
+    font-size: 1.8rem;
+  }
+}
