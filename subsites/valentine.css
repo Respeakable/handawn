@@ -414,3 +414,11 @@ footer {
   text-shadow: 1px 1px 4px var(--pink-text);
   background: linear-gradient(var(--_bg-leigh), rgb(0, 0, 0));
 }
+
+/* em */
+
+em {
+  color: var(--pink-text);
+  font-style: italic;
+  font-weight: bold;
+}
