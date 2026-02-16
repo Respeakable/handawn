@@ -20,6 +20,11 @@
   #library li {
     flex: 0 0 37em;
   }
+
+  iframe {
+    max-width: 20em;
+    transform: translateX(calc(40vw - var(--padding-medium)));
+  }
 }
 
 /* Disable fixed background on narrow/touch devices (better performance

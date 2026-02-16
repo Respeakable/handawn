@@ -34,8 +34,58 @@
     </header>
     <main>
       <div class="hero-img-wrapper">
-        <img src="../images/HVD.png" alt="hvd" class="hvd-img" />
+        <img src="../images/HVD.png" alt="hvd" class="hvd-img anim bob" />
       </div>
+      <section class="content-hero">
+        <p class="raleway-semibold-italic" id="quotie">
+          "Kapag feel mo wala na nagmamahal sa 'yo, alamin mo na mahal kita
+          sobra"
+          <br />- ju
+          <img
+            src="../images/messenger_green_heart.png"
+            alt="💚"
+            class="messenger-icons"
+          />
+        </p>
+
+        <div class="hero-message poppins-medium">
+          Hey there! Hope ur doing well!! I made a letter for youuu, sorry if
+          this is a bit late but I hope you like it :&gt;
+        </div>
+
+        <div class="button-hero-wrapper flex">
+          <button type="button" class="redirect poppins-bold">
+            <a href="#gift">Check it Out :p</a>
+          </button>
+        </div>
+      </section>
+      <section class="gift" id="gift">
+        <!-- Envelope-->
+        <div class="envelope-wrapper flex">
+          <div class="envelope" id="envelope">
+            <div class="flap"></div>
+            <div class="body"></div>
+            <div class="letter" id="letter">
+              <h2>Dear Hanna 💖</h2>
+              <p>Your letter content goes here...</p>
+              <p>Add as much text as you want!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal backdrop -->
+        <div class="modal-backdrop" id="modalBackdrop">
+          <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div class="letter-content">
+              <h2>Dear Hanna 💖</h2>
+              <p>Your beautiful letter content goes here...</p>
+              <p>Add multiple paragraphs, images, whatever you want!</p>
+              <p>This is your special Valentine's message.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <!-- js -->
     <script>
@@ -45,6 +95,34 @@
         setTimeout(() => {
           flowerButton.classList.remove("theme-spin");
         }, 550);
+      });
+
+      // Envelope and modal functionality
+      const envelope = document.getElementById("envelope");
+      const modalBackdrop = document.getElementById("modalBackdrop");
+      const closeModal = document.getElementById("closeModal");
+
+      envelope.addEventListener("click", () => {
+        envelope.classList.add("open");
+
+        // Show modal after envelope animation
+        setTimeout(() => {
+          modalBackdrop.classList.add("show");
+        }, 900);
+      });
+
+      // Close modal
+      closeModal.addEventListener("click", () => {
+        modalBackdrop.classList.remove("show");
+        envelope.classList.remove("open");
+      });
+
+      // Close modal when clicking backdrop
+      modalBackdrop.addEventListener("click", (e) => {
+        if (e.target === modalBackdrop) {
+          modalBackdrop.classList.remove("show");
+          envelope.classList.remove("open");
+        }
       });
     </script>
   </body>
