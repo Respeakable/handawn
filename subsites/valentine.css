@@ -422,3 +422,12 @@ em {
   font-style: italic;
   font-weight: bold;
 }
+
+.modal-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--small-rounded);
+  box-shadow: 0 4px var(--blur-small) hsl(0 0% 0% / var(--translucent-ish));
+  border-radius: var(--rounded);
+  margin-top: 1rem;
+}
