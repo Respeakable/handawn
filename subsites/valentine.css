@@ -146,7 +146,7 @@ nav h4 {
   width: 100%;
   object-fit: contain;
   display: block;
-  margin: 4rem auto 1rem auto;
+  margin: 6rem auto 1rem auto;
   overflow-x: hidden;
 }
 
@@ -256,7 +256,7 @@ nav h4 {
 .envelope-wrapper {
   justify-content: center;
   align-items: center;
-  margin: 4rem 0;
+  margin: 4rem 0 2rem 0;
   perspective: 1000px;
 }
 
@@ -321,6 +321,13 @@ nav h4 {
 .envelope.open .letter {
   transform: translateX(-50%) translateY(-100px);
   opacity: 1;
+}
+
+/* Text below the envelope */
+.letter-text {
+  color: var(--text-on-dark);
+  font-size: clamp(1.3rem, 1.5vw, 2rem);
+  text-shadow: 1px 1px 4px var(--pink-text);
 }
 
 /* Modal styles */
@@ -392,4 +399,18 @@ nav h4 {
 .letter-content p {
   margin-bottom: 1rem;
   line-height: 1.6;
+  text-align: justify;
+}
+
+footer {
+  --_bg-leigh: hsl(129, 17%, 51%); /* Hunter Green (#355E3B) */
+
+  height: 4rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-on-dark);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  text-shadow: 1px 1px 4px var(--pink-text);
+  background: linear-gradient(var(--_bg-leigh), rgb(0, 0, 0));
 }
