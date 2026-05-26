@@ -59,11 +59,12 @@ h1 {
 header {
   position: relative;
   z-index: 10;
-  @starting-style {
-    translate: 0px -5rem;
-    opacity: 0%;
-  }
+  translate: 0px 0;
+  opacity: 1;
 
+  -webkit-transition:
+    -webkit-transform 1.5s ease,
+    opacity 1.5s ease;
   transition:
     translate 1.5s ease,
     opacity 1.5s ease;
@@ -101,11 +102,24 @@ nav > div {
   animation: theme-spin 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@keyframes theme-spin {
+@-webkit-keyframes theme-spin {
   from {
+    -webkit-transform: translateY(-50%) rotate(0deg);
     transform: translateY(-50%) rotate(0deg);
   }
   to {
+    -webkit-transform: translateY(-50%) rotate(360deg);
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes theme-spin {
+  from {
+    -webkit-transform: translateY(-50%) rotate(0deg);
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    -webkit-transform: translateY(-50%) rotate(360deg);
     transform: translateY(-50%) rotate(360deg);
   }
 }
@@ -113,6 +127,7 @@ nav > div {
 .messenger-icons {
   width: 1.3rem;
   height: 1.3rem;
+  -webkit-transform: translateY(2px);
   transform: translateY(2px);
 }
 
@@ -137,20 +152,28 @@ section {
 /* Scroll animations: fade + lift when element enters viewport */
 .animate-on-scroll {
   opacity: 0;
+  -webkit-transform: translateY(1rem);
   transform: translateY(1rem);
+  -webkit-transition:
+    opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    -webkit-transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
   transition:
     opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
   /* allow per-element delay via --anim-delay */
+  -webkit-transition-delay: var(--anim-delay, 0ms);
   transition-delay: var(--anim-delay, 0ms);
   will-change: opacity, transform;
 }
 .animate-on-scroll.in-view {
   opacity: 1;
+  -webkit-transform: translateY(0);
   transform: translateY(0);
 }
 
 section.hero {
+  height: 100vh;
+  /* Fallback for Safari/older browsers that don't support dvh */
   height: 100dvh;
   display: flex;
   justify-content: center;
@@ -173,7 +196,7 @@ section.hero {
 
 .hero {
   position: relative;
-  height: 60vh;
+  min-height: 60vh;
 }
 
 /* Gradient overlay fade */
@@ -220,6 +243,7 @@ em {
   padding: 0.75rem 1.5rem;
   border-radius: 5px;
   cursor: pointer;
+  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .cont-hero-button a {
@@ -227,6 +251,7 @@ em {
   text-shadow: 0 0 5px hsla(46, 42%, 33%, 0.877);
   text-decoration: none;
   font-size: clamp(var(--small), 2vw, var(--mid));
+  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
@@ -236,7 +261,9 @@ em {
   padding: var(--padding-large) var(--padding-medium);
   background-color: var(--bg-secondary);
   box-shadow: 0px -10px 15px hsl(0 0% 0% / var(--translucent-ish));
-  height: 100dvh;
+  min-height: 100vh;
+  /* Fallback for Safari/older browsers that don't support dvh */
+  min-height: 100dvh;
 }
 #library ul {
   list-style: none;
@@ -245,29 +272,8 @@ em {
   overflow-x: auto;
   padding-bottom: var(--padding-medium);
   scrollbar-width: none;
-  anchor-name: --carrousel;
+  -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
-  scroll-marker-group: after;
-}
-
-#carrousel::scroll-marker-group {
-  display: flex;
-  justify-content: center;
-  gap: 0.5em;
-  transform: translateY(-10px);
-}
-
-#carrousel li::scroll-marker {
-  content: "";
-  font-size: 1.2rem;
-  background-color: var(--border-subtle);
-  height: 0.5em;
-  width: 0.5em;
-  border-radius: 50%;
-}
-
-#carrousel li::scroll-marker:target-current {
-  background-color: var(--bg-primary);
 }
 
 #library ul::-webkit-scrollbar {
@@ -314,37 +320,6 @@ em {
   color: var(--accent-gray);
 }
 
-#library ul::scroll-button(right),
-#library ul::scroll-button(left) {
-  content: "→";
-  border: none;
-  background-color: var(--accent-gold);
-  width: 3rem;
-  height: 3rem;
-  color: var(--bg-secondary);
-  border-radius: var(--circle);
-  font-family: "Consolas", sans-serif;
-  font-size: 2.3rem;
-  padding-bottom: 0.1em;
-  cursor: pointer;
-  position: fixed;
-  position-anchor: --carrousel;
-  position-area: right center;
-  translate: -65%;
-}
-
-#library ul::scroll-button(left) {
-  content: "←";
-  position-area: left center;
-  translate: 65%;
-}
-
-#library ul::scroll-button(right):disabled,
-#library ul::scroll-button(left):disabled {
-  background-color: var(--border-subtle);
-  cursor: not-allowed;
-}
-
 .library-text {
   padding: var(--padding-small);
   font-size: 0.9rem;
@@ -357,6 +332,8 @@ section#more {
   padding: var(--padding-large) var(--padding-medium);
   background: linear-gradient(var(--bg-primary) 70%, #00000059);
   color: var(--text-on-dark);
+  min-height: 100vh;
+  /* Fallback for Safari/older browsers that don't support dvh */
   min-height: 100dvh;
 }
 section#more h1 {

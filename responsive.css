@@ -5,12 +5,14 @@
 
   .cont-hero-button button:hover {
     background-color: var(--accent-beige);
-    translate: 0px -2px;
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
   }
 
   .cont-hero-button button:active {
     background-color: var(--accent-gray);
-    translate: 0px 2px;
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
   }
 
   .theme-toggle:hover {
@@ -23,6 +25,7 @@
 
   iframe {
     max-width: 20em;
+    -webkit-transform: translateX(calc(40vw - var(--padding-medium)));
     transform: translateX(calc(40vw - var(--padding-medium)));
   }
 }
