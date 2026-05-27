@@ -1,6 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: linear-gradient(135deg, #9ae674 0%, #9c4ba2 100%);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  flex-direction: column;
+}
+
+.container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 60px 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.timer-unit {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  min-width: 80px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.timer-value {
+  font-size: 3em;
+  font-weight: bold;
+  line-height: 1;
+  display: block;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.timer-label {
+  font-size: 0.9em;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.9;
+}
+
+.message {
+  font-size: 1.2em;
+  margin-top: 30px;
+  opacity: 0.95;
+  font-style: italic;
+}
+
+.expired {
+  font-size: 2em;
+  color: #ffd700;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 40px 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .timer {
+    gap: 15px;
+  }
+
+  .timer-unit {
+    padding: 15px 20px;
+    min-width: 70px;
+  }
+
+  .timer-value {
+    font-size: 2em;
+  }
 }
