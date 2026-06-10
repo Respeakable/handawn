@@ -1,0 +1,244 @@
+@media (min-width: 768px) and (max-width: 1366px) {
+  :root {
+    --bg-image: url("../images/Background - Ipad - Green.png");
+  }
+
+  :root.pink-theme {
+    --bg-image: url("../images/Background - Ipad.png");
+  }
+
+  #background-id {
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
+  }
+
+  .head-link-wrapper {
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .head-link {
+    font-size: 1.2rem;
+    order: 1;
+    white-space: nowrap;
+    align-self: center;
+  }
+
+  .nav-text {
+    order: 2;
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 0.25rem auto;
+  }
+
+  .theme-toggle {
+    order: 3;
+    align-self: center;
+    scale: 1.3;
+  }
+
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .image-wrapper {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin: 1.5rem auto 0;
+    padding-top: 0.5rem;
+    height: auto;
+    max-height: 55vh;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 55vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  .text-content {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 1.5rem;
+    margin: 1.5rem auto 0;
+    font-size: clamp(1.1rem, 2vw, 2rem);
+  }
+
+  .text-content p {
+    font-size: clamp(1rem, 1.4vw, 1.4rem);
+  }
+
+  .button-wrapper {
+    width: auto;
+    margin-top: 2rem;
+    justify-content: center;
+  }
+
+  .button-wrapper button {
+    width: auto;
+    min-width: 8rem;
+  }
+
+  #carrousel {
+    padding: 1rem 1.25rem;
+    height: auto;
+  }
+
+  .carrousel-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .carrousel-item {
+    width: min(320px, calc(48% - 0.75rem));
+    min-width: 240px;
+    flex: 0 0 auto;
+    padding: 0.75rem;
+    height: auto;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--bg-secondary);
+    border-radius: 0.5rem;
+    border: 2px solid var(--border-subtle);
+  }
+
+  .carrousel-item .list-image {
+    width: 100%;
+    max-height: 210px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carrousel-item .list-image img {
+    width: 100%;
+    height: auto;
+    max-height: 210px;
+    object-fit: contain;
+    display: block;
+    border-radius: var(--rounded);
+  }
+
+  .list-text {
+    padding: 0.75rem 0.5rem;
+    min-height: 3.2rem;
+    text-align: center;
+    line-height: 1.3;
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  .carrousel-text-header {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .text-section p {
+    font-size: clamp(1rem, 1.2vw, 1.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .gift {
+    padding: 2rem 1.5rem;
+  }
+
+  .envelope-wrapper {
+    margin: 3rem 0 2rem;
+  }
+
+  .envelope {
+    width: 260px;
+    height: 180px;
+  }
+
+  .envelope .body {
+    height: 180px;
+  }
+
+  .envelope .flap {
+    border-left: 130px solid transparent;
+    border-right: 130px solid transparent;
+    border-top: 90px solid var(--color-envelope-flap);
+  }
+
+  .envelope .letter {
+    width: 220px;
+    height: 240px;
+    top: 15px;
+  }
+
+  .modal-content {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .modal-img {
+    max-height: 260px;
+    width: auto;
+  }
+
+  .letter-text {
+    font-size: clamp(1.25rem, 1.5vw, 1.8rem);
+  }
+}
+
+@media (orientation: portrait) and (min-width: 768px) and (max-width: 1366px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-wrapper,
+  .text-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .carrousel-item {
+    width: calc(90% - 1rem);
+    min-width: 260px;
+  }
+
+  .carrousel-item .list-image {
+    max-height: 220px;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 768px) and (max-width: 1366px) {
+  .image-wrapper {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+
+  .text-content {
+    max-width: 48%;
+    width: auto;
+    padding: 0;
+    margin-top: 0;
+  }
+
+  .button-wrapper {
+    width: 100%;
+  }
+
+  .carrousel-item {
+    width: calc(45% - 1rem);
+    min-width: 220px;
+  }
+}
